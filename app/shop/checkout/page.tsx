@@ -19,7 +19,9 @@ export default function HomePage() {
 
       {/* ==================== HERO ==================== */}
       <section className="relative pt-20 pb-24 bg-[#0A0F1C]">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 mb-6 text-sm text-white">
             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
             Najlepsze ceny w Polsce od 2021
@@ -45,6 +47,7 @@ export default function HomePage() {
               </button>
             </Link>
           </div>
+        </div>
         </div>
       </section>
 
