@@ -18,39 +18,90 @@ export default function HomePage() {
       <Navbar />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative pt-20 pb-24 bg-[#0A0F1C]">
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+<section className="relative overflow-hidden bg-[#0A0F1C] pt-24 pb-32">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 mb-6 text-sm text-white">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            Najlepsze ceny w Polsce od 2021
-          </div>
+  {/* Background */}
+  <div className="absolute inset-0 pointer-events-none">
 
-          <h1 className="font-display text-7xl md:text-8xl font-semibold tracking-tighter leading-none mb-6 text-white">
-            Najtańsze gry<br />i oprogramowanie
-          </h1>
-          
-          <p className="text-2xl text-white/80 max-w-md mx-auto mb-10">
-            Natychmiastowa dostawa. Najlepsze ceny.<br />Zero kompromisów.
-          </p>
+    <div className="absolute left-1/2 top-16 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[180px]" />
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/products">
-              <button className="neon-button px-10 py-4 rounded-3xl bg-white text-black font-semibold text-lg flex items-center gap-3 hover:bg-white/90">
-                Kup teraz <ArrowRight className="w-5 h-5" />
-              </button>
-            </Link>
-            <Link href="#popularne">
-              <button className="px-10 py-4 rounded-3xl border border-white/20 hover:bg-white/5 text-lg font-medium text-white">
-                Przeglądaj ofertę
-              </button>
-            </Link>
-          </div>
-        </div>
-        </div>
-      </section>
+    <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-cyan-400/10 blur-[180px]" />
 
+    <div className="absolute right-0 bottom-0 h-[600px] w-[600px] rounded-full bg-indigo-500/10 blur-[180px]" />
+
+    <div
+      className="
+      absolute
+      inset-0
+      opacity-[0.03]
+      [background-size:60px_60px]
+      [background-image:
+      linear-gradient(to_right,white_1px,transparent_1px),
+      linear-gradient(to_bottom,white_1px,transparent_1px)]
+      "
+    />
+
+  </div>
+
+  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: .6 }}
+      className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5 mb-8"
+    >
+      <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+      Najlepsze ceny w Polsce od 2021
+    </motion.div>
+
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: .1, duration: .8 }}
+      className="hero-title font-display text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] mb-8"
+    >
+      Najtańsze gry
+      <br />
+      i oprogramowanie
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: .2, duration: .8 }}
+      className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-12"
+    >
+      Natychmiastowa dostawa.
+      <br />
+      Najlepsze ceny.
+      Zero kompromisów.
+    </motion.p>
+
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: .3, duration: .8 }}
+      className="flex flex-col sm:flex-row justify-center gap-5"
+    >
+
+      <Link href="/products">
+        <button className="neon-button rounded-3xl bg-white px-10 py-5 text-lg font-semibold text-black">
+          Kup teraz →
+        </button>
+      </Link>
+
+      <Link href="#popularne">
+        <button className="rounded-3xl border border-white/15 px-10 py-5 text-lg hover:bg-white/5 transition-all">
+          Przeglądaj ofertę
+        </button>
+      </Link>
+
+    </motion.div>
+
+  </div>
+
+</section>
       {/* ==================== STATS ==================== */}
       <div className="max-w-6xl mx-auto px-6 -mt-8 relative z-20">
         <div className="glass rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 border border-white/10">
