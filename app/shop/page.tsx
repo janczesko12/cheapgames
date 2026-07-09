@@ -59,15 +59,49 @@ export default function HomePage() {
               <span className="text-sm text-white/80">Najlepsze ceny w Polsce od 2021</span>
             </div>
 
-            <h1 className="font-display text-7xl md:text-8xl font-semibold tracking-tighter leading-[0.95] mb-6">
-              Najtańsze gry<br />i oprogramowanie
-            </h1>
-            
-            <p className="text-2xl text-white/70 max-w-lg mx-auto mb-10">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="
+              hero-title
+              font-display
+              text-6xl
+              md:text-8xl
+              lg:text-9xl
+              font-semibold
+              tracking-tighter
+              leading-[0.9]
+              mb-8
+              text-white
+              max-w-5xl
+              mx-auto
+            "
+          >
+          </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: .15, duration: .8 }}
+              className="
+              text-xl
+              md:text-2xl
+              text-white/75
+              max-w-2xl
+              mx-auto
+              mb-12
+            "
+            >
               Natychmiastowa dostawa. Najlepsze ceny.<br />Zero kompromisów.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: .30, duration: .8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              
               <Link href="/products">
                 <button className="neon-button group flex items-center justify-center gap-3 px-10 py-4 rounded-3xl bg-white text-black font-semibold text-lg hover:bg-white/90 transition-all active:scale-[0.985]">
                   Kup teraz
@@ -79,7 +113,7 @@ export default function HomePage() {
                   Przeglądaj ofertę
                 </button>
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
