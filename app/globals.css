@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-grotesk);
+  
+  --bg-primary: #0A0F1C;
+  --bg-secondary: #111827;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --neon-blue: #3B82F6;
+  --neon-cyan: #22D3EE;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ==================== GLASSMORPHISM ==================== */
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ==================== NEON EFFECTS ==================== */
+.neon-text {
+  text-shadow: 0 0 10px rgb(59 130 246 / 0.5),
+               0 0 20px rgb(59 130 246 / 0.3);
+}
+
+.neon-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.23, 1.0, 0.32, 1);
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.neon-button:hover::before {
+  transform: translateX(300%);
+}
+
+.neon-button:hover {
+  box-shadow: 0 0 20px rgb(59 130 246 / 0.4),
+              0 10px 30px rgb(0 0 0 / 0.3);
+  transform: translateY(-1px);
+}
+
+/* ==================== PRODUCT CARD ==================== */
+.product-card {
+  transition: transform 0.4s cubic-bezier(0.23, 1.0, 0.32, 1),
+              box-shadow 0.4s cubic-bezier(0.23, 1.0, 0.32, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+}
+
+/* ==================== ANIMATED GRADIENT ==================== */
+.animated-gradient {
+  background: linear-gradient(
+    135deg,
+    #0A0F1C 0%,
+    #111827 50%,
+    #0A0F1C 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ==================== SCROLL ANIMATIONS ==================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.23, 1.0, 0.32, 1);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== STAT COUNTER ==================== */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
