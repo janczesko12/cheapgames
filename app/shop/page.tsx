@@ -19,35 +19,45 @@ const categories = [
   { name: 'PlayStation', count: '156', icon: '🎮' },
 ];
 
+const reviews = [
+  { name: 'Kacper W.', text: 'Najlepsze ceny na rynku. Klucz przyszedł w 12 sekund.', rating: 5 },
+  { name: 'Julia M.', text: 'Kupiłam grę dla dziecka — wszystko działa idealnie. Polecam!', rating: 5 },
+  { name: 'Michał K.', text: 'Profesjonalna obsługa i świetny support. Będę wracać.', rating: 5 },
+];
+
+const faqs = [
+  'Jak szybko dostanę klucz?',
+  'Czy klucze są oryginalne?',
+  'Czy mogę zwrócić grę?',
+  'Jakie metody płatności akceptujecie?',
+  'Czy wspieracie polskie gry?',
+];
+
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0A0F1C] overflow-hidden">
+    <div className="min-h-screen bg-[#0A0F1C] overflow-hidden text-white">
       <Navbar />
 
       {/* ==================== HERO ==================== */}
       <section className="relative overflow-hidden pt-20 pb-24 bg-[#0A0F1C]">
         {/* Animated Background */}
-<div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute left-1/2 top-20 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[180px]" />
+          <div className="absolute left-0 top-0 h-[450px] w-[450px] rounded-full bg-cyan-400/10 blur-[160px]" />
+          <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-indigo-500/10 blur-[180px]" />
+          <div
+            className="
+              absolute
+              inset-0
+              opacity-[0.03]
+              [background-size:60px_60px]
+              [background-image:
+              linear-gradient(to_right,white_1px,transparent_1px),
+              linear-gradient(to_bottom,white_1px,transparent_1px)]
+            "
+          />
+        </div>
 
-  <div className="absolute left-1/2 top-20 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[180px]" />
-
-  <div className="absolute left-0 top-0 h-[450px] w-[450px] rounded-full bg-cyan-400/10 blur-[160px]" />
-
-  <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-indigo-500/10 blur-[180px]" />
-
-  <div
-    className="
-      absolute
-      inset-0
-      opacity-[0.03]
-      [background-size:60px_60px]
-      [background-image:
-      linear-gradient(to_right,white_1px,transparent_1px),
-      linear-gradient(to_bottom,white_1px,transparent_1px)]
-    "
-  />
-
-</div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -64,54 +74,62 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="
-              hero-title
-              font-display
-              text-6xl
-              md:text-8xl
-              lg:text-9xl
-              font-semibold
-              tracking-tighter
-              leading-[0.9]
-              mb-8
-              text-white
-              max-w-5xl
-              mx-auto
-            "
-          >
-          </motion.h1>
+                hero-title
+                font-display
+                text-6xl
+                md:text-8xl
+                lg:text-9xl
+                font-semibold
+                tracking-tighter
+                leading-[0.9]
+                mb-8
+                text-white
+                max-w-5xl
+                mx-auto
+              "
+            >
+              Najtańsze gry
+              <br />
+              i oprogramowanie
+            </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: .15, duration: .8 }}
+              transition={{ delay: 0.15, duration: 0.8 }}
               className="
-              text-xl
-              md:text-2xl
-              text-white/75
-              max-w-2xl
-              mx-auto
-              mb-12
-            "
+                text-xl
+                md:text-2xl
+                text-white/75
+                max-w-2xl
+                mx-auto
+                mb-12
+              "
             >
-              Natychmiastowa dostawa. Najlepsze ceny.<br />Zero kompromisów.
+              Natychmiastowa dostawa. Najlepsze ceny.
+              <br />
+              Zero kompromisów.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: .30, duration: .8 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              
-              <Link href="/products">
-                <button className="neon-button group flex items-center justify-center gap-3 px-10 py-4 rounded-3xl bg-white text-black font-semibold text-lg hover:bg-white/90 transition-all active:scale-[0.985]">
-                  Kup teraz
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition" />
-                </button>
+              <Link
+                href="/products"
+                className="neon-button group flex items-center justify-center gap-3 px-10 py-4 rounded-3xl bg-white text-black font-semibold text-lg hover:bg-white/90 transition-all active:scale-[0.985]"
+              >
+                Kup teraz
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition" />
               </Link>
-              <Link href="#popularne">
-                <button className="flex items-center justify-center gap-3 px-10 py-4 rounded-3xl border border-white/20 hover:bg-white/5 text-lg font-medium transition-all">
-                  Przeglądaj ofertę
-                </button>
+
+              <Link
+                href="#popularne"
+                className="flex items-center justify-center gap-3 px-10 py-4 rounded-3xl border border-white/20 hover:bg-white/5 text-lg font-medium transition-all"
+              >
+                Przeglądaj ofertę
               </Link>
             </motion.div>
           </motion.div>
@@ -162,7 +180,10 @@ export default function HomePage() {
 
       {/* ==================== KATEGORIE ==================== */}
       <section className="max-w-7xl mx-auto px-6 pb-20">
-        <h2 className="font-display text-4xl font-semibold tracking-tighter mb-8">Przeglądaj według platformy</h2>
+        <h2 className="font-display text-4xl font-semibold tracking-tighter mb-8">
+          Przeglądaj według platformy
+        </h2>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {categories.map((cat, index) => (
             <motion.div
@@ -180,10 +201,16 @@ export default function HomePage() {
 
       {/* ==================== TRUST BAR ==================== */}
       <div className="border-t border-white/10 py-8">
-        <div className="max-w-5xl mx-auto px-6 flex items-center justify-center gap-12 text-white/60 text-sm">
-          <div className="flex items-center gap-2"><Award className="w-4 h-4" /> 100% oryginalne klucze</div>
-          <div className="flex items-center gap-2"><Zap className="w-4 h-4" /> Dostawa w 30 sekund</div>
-          <div className="flex items-center gap-2"><Users className="w-4 h-4" /> 92 000+ klientów</div>
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 text-white/60 text-sm">
+          <div className="flex items-center gap-2">
+            <Award className="w-4 h-4" /> 100% oryginalne klucze
+          </div>
+          <div className="flex items-center gap-2">
+            <Zap className="w-4 h-4" /> Dostawa w 30 sekund
+          </div>
+          <div className="flex items-center gap-2">
+            <Users className="w-4 h-4" /> 92 000+ klientów
+          </div>
         </div>
       </div>
 
@@ -233,11 +260,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { name: "Kacper W.", text: "Najlepsze ceny na rynku. Klucz przyszedł w 12 sekund.", rating: 5 },
-            { name: "Julia M.", text: "Kupiłam grę dla dziecka — wszystko działa idealnie. Polecam!", rating: 5 },
-            { name: "Michał K.", text: "Profesjonalna obsługa i świetny support. Będę wracać.", rating: 5 },
-          ].map((review, i) => (
+          {reviews.map((review, i) => (
             <div key={i} className="glass rounded-3xl p-8 border border-white/10">
               <div className="flex gap-1 mb-4 text-amber-400">
                 {Array.from({ length: review.rating }).map((_, idx) => (
@@ -254,19 +277,15 @@ export default function HomePage() {
       {/* ==================== FAQ ==================== */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-24">
         <div className="text-center mb-12">
-          <h2 className="font-display text-5xl font-semibold tracking-tighter mb-3">Najczęściej zadawane pytania</h2>
+          <h2 className="font-display text-5xl font-semibold tracking-tighter mb-3">
+            Najczęściej zadawane pytania
+          </h2>
         </div>
 
         <div className="space-y-3">
-          {[
-            "Jak szybko dostanę klucz?",
-            "Czy klucze są oryginalne?",
-            "Czy mogę zwrócić grę?",
-            "Jakie metody płatności akceptujecie?",
-            "Czy wspieracie polskie gry?",
-          ].map((question, index) => (
+          {faqs.map((question, index) => (
             <details key={index} className="glass rounded-3xl px-8 py-6 border border-white/10 group">
-              <summary className="font-medium text-lg cursor-pointer flex justify-between items-center">
+              <summary className="font-medium text-lg cursor-pointer flex justify-between items-center list-none">
                 {question}
                 <span className="text-white/40 group-open:rotate-45 transition-transform">+</span>
               </summary>
@@ -287,27 +306,29 @@ export default function HomePage() {
           <h2 className="font-display text-5xl font-semibold tracking-tighter mb-4">Bądź na bieżąco</h2>
           <p className="text-white/60 text-lg mb-8">Otrzymuj powiadomienia o najlepszych promocjach i nowościach.</p>
 
-          <form 
+          <form
             onSubmit={(e) => {
               e.preventDefault();
               alert('Dziękujemy! Zostałeś zapisany do newslettera.');
-            }} 
+            }}
             className="flex gap-3 max-w-md mx-auto"
           >
-            <input 
-              type="email" 
-              placeholder="Twój adres email" 
+            <input
+              type="email"
+              placeholder="Twój adres email"
               required
-              className="flex-1 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-blue-500/60 text-sm placeholder:text-white/40"
+              className="flex-1 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-blue-500/60 text-sm placeholder:text-white/40 outline-none"
             />
-            <button 
+            <button
               type="submit"
               className="neon-button px-9 rounded-2xl bg-white text-black font-semibold hover:bg-white/90 transition-all"
             >
               Zapisz się
             </button>
           </form>
-          <p className="text-xs text-white/40 mt-4">Wysyłamy max. 2 maile miesięcznie. Możesz wypisać się w każdej chwili.</p>
+          <p className="text-xs text-white/40 mt-4">
+            Wysyłamy max. 2 maile miesięcznie. Możesz wypisać się w każdej chwili.
+          </p>
         </div>
       </section>
 
