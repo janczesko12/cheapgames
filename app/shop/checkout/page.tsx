@@ -38,17 +38,14 @@ export default function CheckoutPage() {
         }),
       });
 
-      const { sessionId } = await res.json();
+      const { url } = await res.json();
 
-      const stripe = await stripePromise;
-      if (!stripe) throw new Error('Stripe failed to load');
-
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-
-      if (error) {
-        console.error(error);
-        alert('Wystąpił błąd podczas płatności');
+      if (!url) {
+        throw new Error("No checkout URL returned");
       }
+
+      window.location.href = url;
+      return;
     } catch (error) {
       console.error(error);
       alert('Błąd podczas tworzenia sesji płatności');
