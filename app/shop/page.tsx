@@ -25,7 +25,29 @@ export default function HomePage() {
       <Navbar />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative pt-20 pb-24 flex items-center justify-center animated-gradient">
+      <section className="relative overflow-hidden pt-20 pb-24 bg-[#0A0F1C]">
+        {/* Animated Background */}
+<div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+  <div className="absolute left-1/2 top-20 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[180px]" />
+
+  <div className="absolute left-0 top-0 h-[450px] w-[450px] rounded-full bg-cyan-400/10 blur-[160px]" />
+
+  <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-indigo-500/10 blur-[180px]" />
+
+  <div
+    className="
+      absolute
+      inset-0
+      opacity-[0.03]
+      [background-size:60px_60px]
+      [background-image:
+      linear-gradient(to_right,white_1px,transparent_1px),
+      linear-gradient(to_bottom,white_1px,transparent_1px)]
+    "
+  />
+
+</div>
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
